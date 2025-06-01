@@ -1,5 +1,5 @@
-from segment_anything import build_sam_vit_b
-from segment_anything.modeling.sam import Sam
+from src.segment_anything import build_sam_vit_b
+from src.segment_anything.modeling.sam import Sam
 
 import numpy as np
 import torch
@@ -10,6 +10,8 @@ from torch.nn.parameter import Parameter
 from safetensors import safe_open
 from safetensors.torch import save_file
 import yaml
+from pathlib import Path
+
 
 class LoRA_qkv(nn.Module):
     """
@@ -169,5 +171,7 @@ class LoRA_sam(nn.Module):
                 saved_tensor = f.get_tensor(saved_key)
                 w_B_linear.weight = nn.Parameter(saved_tensor)
 
-with open("/Users/nazar228/Desktop/folder1/Sam_LoRA/config.yaml", "r") as ymlfile:
+FOLDER_DIR = Path(__file__).resolve().parents[2]
+
+with open("/Users/nazar228/Desktop/try1/digital_twin/Sam_LoRA/config.yaml", "r") as ymlfile:
    config_file = yaml.load(ymlfile, Loader=yaml.Loader)
