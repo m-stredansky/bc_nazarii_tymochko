@@ -62,3 +62,23 @@ cd system_files
 mkdir output_sam
 mkdir output_lora
 ```
+### 7. And then you also need to go to folder Sam_LoRA, then run this commands:
+
+```
+poetry config virtualenvs.in-project false
+poetry install --all-extras
+poetry run pip install --upgrade gradio safetensors monai
+```
+
+### To start programm you need run this:
+Run with ViT-H model:
+
+```
+python system_files/SAM/sam.py
+```
+Run with LoRA model:
+
+```
+python system_files/SAM/lora_segm.py
+```
+Then output will be saved into output_sam and output_lora folders
