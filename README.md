@@ -26,7 +26,7 @@ Follow these steps to install and configure the environment for running the segm
 
 ```bash
 git clone https://github.com/Nazar1119/digital_twin.git](https://github.com/m-stredansky/bc_nazarii_tymochko.git
-cd digital_twin
+cd bc_nazarii_tymochko
 ```
 ### 2. Create a virtual evironment
 ```
