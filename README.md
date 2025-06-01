@@ -15,23 +15,6 @@ This repository contains a segmentation pipeline designed for evaluating the qua
 - Visualizations: overlay, bounding boxes, histograms
 - Sinter Quality Index (SQI) metric
 
----
-
-## 📁 Repository Structure
-
-bc_nazarii_tymochko/
-├── system_files/
-│ ├── SAM/ # Contains SAM model weights and segmentation scripts
-│ ├── img1.jpg # Test image
-│ └── segment-anything/ # Cloned Meta SAM repo
-├── Sam_LoRA/ # Fine-tuned model using LoRA
-├── output_sam/ # Outputs from ViT-H model
-├── output_lora/ # Outputs from LoRA model
-├── sam.py # Segmentation with ViT-H
-├── lora_segm.py # Segmentation with LoRA model
-└── README.md
-
-
 
 ---
 
@@ -44,9 +27,38 @@ Follow these steps to install and configure the environment for running the segm
 ```bash
 git clone https://github.com/Nazar1119/digital_twin.git
 cd digital_twin
-
+```
 ### 2. Create a virtual evironment
 ```
 python3 -m venv venv
 source venv/bin/activate
+```
+### 3. Install Python Dependencies
+```
+pip install -r requirements.txt
+```
 
+### 4. Download SAM Model Weights
+
+```
+cd Sam_LoRA
+curl -O https://dl.fbaipublicfiles.com/segment_anything/sam_vit_b_01ec64.pth
+
+cd ../system_files/SAM
+curl -O https://dl.fbaipublicfiles.com/segment_anything/sam_vit_h_4b8939.pth
+```
+
+### 5. Clone the Official Segment Anything Repository
+
+```
+cd ..
+git clone https://github.com/facebookresearch/segment-anything.git
+```
+
+### 6. Prepare Output Folders
+
+```
+cd system_files
+mkdir output_sam
+mkdir output_lora
+```
