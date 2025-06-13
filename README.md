@@ -1,20 +1,23 @@
 # 📦 Digital Twin for Sinter Quality Evaluation using SAM
 
-This repository contains a segmentation pipeline designed for evaluating the quality of iron ore sinter. It uses Meta’s Segment Anything Model (SAM) to detect particles on a conveyor belt image and calculate critical quality metrics like the Sinter Quality Index (SQI). The project is part of a bachelor thesis at the Technical University of Košice.
+This repository contains a segmentation pipeline designed for evaluating the quality of iron ore sinter. It uses Meta’s **Segment Anything Model (SAM)** to detect particles on conveyor belt images and calculate critical quality metrics such as the **Sinter Quality Index (SQI)**. The project is part of a bachelor thesis at the Technical University of Košice.
 
 ---
 
-## 🚀 Features
+## 📁 Repository Structure & Key Components
 
-- High-quality segmentation using **SAM ViT-H**
-- Fine-tuned **LoRA + SAM ViT-B** variant for improved domain performance
-- Calculation of:
-  - Equivalent Circle Diameter
-  - Bounding box & rotated minimum rectangle
-  - Area, orientation, and axis lengths
-- Visualizations: overlay, bounding boxes, histograms
-- Sinter Quality Index (SQI) metric
+- **`outputs/`**  
+  This directory contains the **best segmentation results** generated during experimentation. These include visual outputs of sinter particles segmented using different model configurations.
 
+- **`Sam_LoRA/dataset/`**  
+  Contains the dataset used for **adapter-based fine-tuning** of the SAM model (LoRA).  
+  - Organized into `train/` and `test/` folders  
+  - Includes annotated masks and corresponding images for adaptive tuning
+
+- **`system_files/SAM/`**  
+  Includes segmentation scripts for running two different setups:  
+  - `lora_segm.py`: Uses **LoRA-tuned SAM** for enhanced segmentation performance  
+  - `sam.py`: Uses the **default Segment Anything Model** without any fine-tuning
 
 ---
 
